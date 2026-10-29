@@ -11,6 +11,7 @@ export default function HomePage() {
     <>
       <section style={{ "maxWidth": "1200px", "margin": "0 auto", "padding": "72px 24px 88px", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(100%, 460px), 1fr))", "gap": "56px", "alignItems": "center", "position": "relative" }}>
         <div style={{ "display": "flex", "flexDirection": "column", "gap": "24px", "position": "relative" }}>
+          <img src={asset("/images/logo.jpg")} alt="Meg's Pets — your local pet nanny" width="1170" height="230" style={{ "display": "block", "width": "100%", "maxWidth": "549px", "height": "auto", "mixBlendMode": "lighten" }} />
           <p style={{ "margin": "0", "fontSize": "20px", "lineHeight": "1.55", "color": "#B4B4BC", "maxWidth": "520px" }}>
             {"A family run business covering Crawley, Crawley Down, East Grinstead and Surrounding Areas.\u00a0"}
           </p>
@@ -48,7 +49,6 @@ export default function HomePage() {
         <div style={{ "position": "relative", "minHeight": "480px", "borderRadius": "32px", "background": "#1F1F23", "display": "flex", "alignItems": "center", "justifyContent": "center", "overflow": "hidden", "width": "100%", "maxWidth": "385px", "height": "464px" }}>
           <img src={asset("/images/hero.jpg")} alt="Meg holding a small fluffy dog beside the Meg's Pets van" width="1200" height="1600" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "display": "block", "objectFit": "cover", "objectPosition": "60% 30%" }} />
         </div>
-        <img className="hero-logo" src={asset("/images/logo.jpg")} alt="Meg's Pets — your local pet nanny" width="1170" height="230" style={{ "position": "absolute", "left": "19px", "top": "33px", "width": "549px", "height": "97px", "mixBlendMode": "lighten" }} />
       </section>
       <section style={{ "background": "#18181B", "padding": "96px 24px" }}>
         <div style={{ "maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "40px" }}>
