@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { asset } from "@/lib/asset";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -46,7 +47,7 @@ export default function MeetTheTeamPage() {
           </article>
           <article style={{ "background": "#18181B", "borderRadius": "28px", "overflow": "hidden", "display": "flex", "flexDirection": "column" }}>
             <div style={{ "height": "400px", "background": "#1F1F23", "position": "relative", "overflow": "hidden" }}>
-              <img src="/images/tor.jpg" alt="Tor, dog walker" width="720" height="960" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "display": "block", "objectFit": "cover", "objectPosition": "50% 30%" }} />
+              <img src={asset("/images/tor.jpg")} alt="Tor, dog walker" width="720" height="960" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "display": "block", "objectFit": "cover", "objectPosition": "50% 30%" }} />
             </div>
             <div style={{ "padding": "28px", "display": "flex", "flexDirection": "column", "gap": "10px" }}>
               <h2 style={{ "margin": "0", "fontFamily": "var(--font-display), sans-serif", "fontWeight": "800", "fontSize": "30px" }}>

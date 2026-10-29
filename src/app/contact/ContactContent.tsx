@@ -97,7 +97,7 @@ export default function ContactContent() {
                 </li>
               </ul>
               <p style={{ "margin": "0", "fontSize": "15px", "color": "#A1A1AA" }}>
-                {"And surrounding areas \u2014 just ask."}
+                {"And surrounding areas — just ask."}
               </p>
             </div>
             <p style={{ "margin": "0", "display": "flex", "alignItems": "center", "gap": "10px", "fontSize": "16px", "color": "#D4D4D8" }}>
@@ -116,7 +116,7 @@ export default function ContactContent() {
               </svg>
             </span>
             <h2 style={{ "margin": "0", "fontFamily": "var(--font-display), sans-serif", "fontWeight": "800", "fontSize": "36px" }}>
-              {"Thanks \u2014 message sent!"}
+              {"Thanks — message sent!"}
             </h2>
             <p style={{ "margin": "0", "fontSize": "18px", "lineHeight": "1.6", "color": "#B4B4BC" }}>
               {"We'll get back to you within [REPLY TIME] to arrange your free meet & greet."}
@@ -167,7 +167,7 @@ export default function ContactContent() {
             </fieldset>
             <label style={{ "display": "flex", "flexDirection": "column", "gap": "8px", "fontWeight": "700", "fontSize": "15px" }}>
               {"Preferred days and times"}
-              <input type="text" placeholder="e.g. Mon, Wed, Fri \u2014 late morning" style={{ "font": "inherit", "fontWeight": "400", "fontSize": "16px", "padding": "14px 16px", "border": "1.5px solid #52525B", "borderRadius": "14px", "background": "#0B0B0C", "color": "#F5F5F5" }} />
+              <input type="text" placeholder="e.g. Mon, Wed, Fri — late morning" style={{ "font": "inherit", "fontWeight": "400", "fontSize": "16px", "padding": "14px 16px", "border": "1.5px solid #52525B", "borderRadius": "14px", "background": "#0B0B0C", "color": "#F5F5F5" }} />
             </label>
             <label style={{ "display": "flex", "flexDirection": "column", "gap": "8px", "fontWeight": "700", "fontSize": "15px" }}>
               {"Message"}

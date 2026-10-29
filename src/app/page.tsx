@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { asset } from "@/lib/asset";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -41,13 +42,13 @@ export default function HomePage() {
             </span>
           </div>
           <h1 className="sr-only">
-            {"Meg's Pets \u2014 dog walking and pet care in Crawley, Crawley Down and East Grinstead"}
+            {"Meg's Pets — dog walking and pet care in Crawley, Crawley Down and East Grinstead"}
           </h1>
         </div>
         <div style={{ "position": "relative", "minHeight": "480px", "borderRadius": "32px", "background": "#1F1F23", "display": "flex", "alignItems": "center", "justifyContent": "center", "overflow": "hidden", "width": "100%", "maxWidth": "385px", "height": "464px" }}>
-          <img src="/images/hero.jpg" alt="Meg holding a small fluffy dog beside the Meg's Pets van" width="1200" height="1600" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "display": "block", "objectFit": "cover", "objectPosition": "60% 30%" }} />
+          <img src={asset("/images/hero.jpg")} alt="Meg holding a small fluffy dog beside the Meg's Pets van" width="1200" height="1600" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "display": "block", "objectFit": "cover", "objectPosition": "60% 30%" }} />
         </div>
-        <img className="hero-logo" src="/images/logo.jpg" alt="Meg's Pets \u2014 your local pet nanny" width="1170" height="230" style={{ "position": "absolute", "left": "19px", "top": "33px", "width": "549px", "height": "97px", "mixBlendMode": "lighten" }} />
+        <img className="hero-logo" src={asset("/images/logo.jpg")} alt="Meg's Pets — your local pet nanny" width="1170" height="230" style={{ "position": "absolute", "left": "19px", "top": "33px", "width": "549px", "height": "97px", "mixBlendMode": "lighten" }} />
       </section>
       <section style={{ "background": "#18181B", "padding": "96px 24px" }}>
         <div style={{ "maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "40px" }}>
