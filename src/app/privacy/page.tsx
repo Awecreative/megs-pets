@@ -9,9 +9,6 @@ export default function PrivacyPage() {
   return (
     <>
       <main style={{ "maxWidth": "820px", "margin": "0 auto", "padding": "64px 24px 96px", "display": "flex", "flexDirection": "column", "gap": "36px", "fontSize": "17px", "lineHeight": "1.65", "color": "#D4D4D8" }}>
-        <p style={{ "margin": "0", "background": "#2A1220", "border": "1px solid var(--accent)", "borderRadius": "14px", "padding": "14px 18px", "fontSize": "15px", "lineHeight": "1.5", "color": "#FFC2DF" }}>
-          {"Template \u2014 please review this policy (ideally with a legal adviser) and fill in every [PLACEHOLDER] before the site goes live."}
-        </p>
         <div style={{ "display": "flex", "flexDirection": "column", "gap": "12px" }}>
           <p style={{ "margin": "0", "fontWeight": "700", "fontSize": "15px", "letterSpacing": "1.5px", "textTransform": "uppercase", "color": "var(--leaf)" }}>
             {"Legal"}
@@ -20,7 +17,7 @@ export default function PrivacyPage() {
             {"Privacy Policy"}
           </h1>
           <p style={{ "margin": "0", "color": "#A1A1AA", "fontSize": "15px" }}>
-            {"Last updated: [DATE]"}
+            {"Last updated: Monday 9th November 2026"}
           </p>
           <p style={{ "margin": "0" }}>
             {"This policy explains how Meg's Pets collects and uses your personal information, in line with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018."}
@@ -31,7 +28,7 @@ export default function PrivacyPage() {
             {"1. Who we are"}
           </h2>
           <p style={{ "margin": "0" }}>
-            {"Meg's Pets is a trading name of [BUSINESS LEGAL NAME], [BUSINESS ADDRESS]. We are the data controller for the information described here. [ICO REGISTRATION NUMBER, IF APPLICABLE.] Contact us about your data at meg_richman@hotmail.co.uk."}
+            {"We are Meg's Pets trading as Francesca's Pets. We are the data controller for the information described here. Contact us about your data at meg_richman@hotmail.co.uk."}
           </p>
         </section>
         <section style={{ "display": "flex", "flexDirection": "column", "gap": "10px" }}>
@@ -133,7 +130,7 @@ export default function PrivacyPage() {
             {"4. How long we keep it"}
           </h2>
           <p style={{ "margin": "0" }}>
-            {"We keep client and pet records for as long as you use our services and for [X YEARS] afterwards. Financial records are kept for 6 years, as required by HMRC. Key and access details are deleted, and keys returned, when services end. Enquiries that don't lead to a booking are deleted after [X MONTHS]."}
+            {"We keep client and pet records for as long as you use our services and for 1 year afterwards. Financial records are kept for 6 years, as required by HMRC. Key and access details are deleted, and keys returned, when services end."}
           </p>
         </section>
         <section style={{ "display": "flex", "flexDirection": "column", "gap": "10px" }}>
@@ -152,9 +149,6 @@ export default function PrivacyPage() {
             </li>
             <li>
               {"our accountant, and HMRC where required;"}
-            </li>
-            <li>
-              {"trusted service providers who help us run the business, such as [BOOKING / EMAIL / HOSTING PROVIDERS], under data protection agreements;"}
             </li>
             <li>
               {"anyone else where the law requires it."}
@@ -186,7 +180,7 @@ export default function PrivacyPage() {
             {"8. Cookies"}
           </h2>
           <p style={{ "margin": "0" }}>
-            {"Our website uses only the cookies needed for it to work. [IF YOU ADD ANALYTICS OR OTHER NON-ESSENTIAL COOKIES, LIST THEM HERE AND ASK FOR CONSENT BEFORE SETTING THEM.]"}
+            {"Our website uses only the cookies needed for it to work."}
           </p>
         </section>
         <section style={{ "display": "flex", "flexDirection": "column", "gap": "10px" }}>
@@ -194,7 +188,7 @@ export default function PrivacyPage() {
             {"9. Contact us"}
           </h2>
           <p style={{ "margin": "0" }}>
-            {"[BUSINESS LEGAL NAME], [BUSINESS ADDRESS]"}
+            {"Meg's Pets trading as Francesca's Pets"}
             <br />
             {"Email: meg_richman@hotmail.co.uk \u00b7 Phone: 07900 490887"}
           </p>

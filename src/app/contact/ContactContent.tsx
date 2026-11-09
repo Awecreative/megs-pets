@@ -1,30 +1,63 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { asset } from "@/lib/asset";
 import Link from "next/link";
 
 export default function ContactContent() {
   const [picked, setPicked] = useState("group");
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSent(true);
+    setError("");
+    setSending(true);
+    const form = new FormData(event.currentTarget);
+    const payload = { ...Object.fromEntries(form.entries()), service: picked };
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
+      if (res.ok && data.ok) {
+        setSent(true);
+      } else {
+        setError(data.error || "Sorry, your message couldn't be sent. Please call or WhatsApp us instead.");
+      }
+    } catch {
+      setError("Sorry, your message couldn't be sent. Please call or WhatsApp us instead.");
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
     <>
       <main style={{ "maxWidth": "1200px", "margin": "0 auto", "padding": "72px 24px 96px", "display": "flex", "flexDirection": "column", "gap": "48px" }}>
-        <div style={{ "display": "flex", "flexDirection": "column", "gap": "16px", "maxWidth": "720px" }}>
-          <p style={{ "margin": "0", "fontWeight": "700", "fontSize": "15px", "letterSpacing": "1.5px", "textTransform": "uppercase", "color": "var(--leaf)" }}>
-            {"Contact"}
-          </p>
-          <h1 style={{ "margin": "0", "fontFamily": "var(--font-display), sans-serif", "fontWeight": "800", "fontSize": "clamp(40px, 5vw, 64px)", "letterSpacing": "-1.5px", "lineHeight": "1.04" }}>
-            {"Let's say hello."}
-          </h1>
-          <p style={{ "margin": "0", "fontSize": "20px", "lineHeight": "1.6", "color": "#B4B4BC" }}>
-            {"Whether you're looking for regular walks, a puppy visit or someone to pop in on your cat, we'd love to hear from you. Send us a message and we'll arrange a free meet & greet."}
-          </p>
+        <div style={{ "display": "flex", "flexWrap": "wrap", "alignItems": "flex-start", "justifyContent": "space-between", "gap": "32px" }}>
+          <div style={{ "display": "flex", "flexDirection": "column", "gap": "16px", "flex": "1 1 360px", "maxWidth": "720px" }}>
+            <p style={{ "margin": "0", "fontWeight": "700", "fontSize": "15px", "letterSpacing": "1.5px", "textTransform": "uppercase", "color": "var(--leaf)" }}>
+              {"Contact"}
+            </p>
+            <h1 style={{ "margin": "0", "fontFamily": "var(--font-display), sans-serif", "fontWeight": "800", "fontSize": "clamp(40px, 5vw, 64px)", "letterSpacing": "-1.5px", "lineHeight": "1.04" }}>
+              {"Let's say hello."}
+            </h1>
+            <p style={{ "margin": "0", "fontSize": "20px", "lineHeight": "1.6", "color": "#B4B4BC" }}>
+              {"Whether you're looking for regular walks, a puppy visit or someone to pop in on your cat, we'd love to hear from you. Send us a message and we'll arrange a free meet & greet."}
+            </p>
+          </div>
+          <div style={{ "display": "flex", "flexWrap": "wrap", "gap": "16px", "flex": "0 0 auto" }}>
+            <div style={{ "position": "relative", "width": "200px", "maxWidth": "100%", "height": "226px", "border": "3px solid var(--accent)", "borderRadius": "18px", "boxSizing": "border-box", "background": "#1F1F23", "overflow": "hidden", "flex": "0 0 auto" }}>
+              <img src={asset("/images/contact-girl-dog.jpg")} alt="A girl kissing a dog" width="912" height="1030" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "display": "block", "objectFit": "cover", "objectPosition": "50% 40%" }} />
+            </div>
+            <div style={{ "position": "relative", "width": "200px", "maxWidth": "100%", "height": "226px", "border": "3px solid var(--accent)", "borderRadius": "18px", "boxSizing": "border-box", "background": "#1F1F23", "overflow": "hidden", "flex": "0 0 auto" }}>
+              <img src={asset("/images/contact-walker-lab.jpg")} alt="Smiling dog walker in a cap with a fox red Labrador on a field" width="1932" height="2576" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "display": "block", "objectFit": "cover", "objectPosition": "50% 45%" }} />
+            </div>
+          </div>
         </div>
         <div style={{ "display": "flex", "flexWrap": "wrap", "gap": "32px", "alignItems": "flex-start" }}>
           <div style={{ "flex": "1 1 320px", "display": "flex", "flexDirection": "column", "gap": "20px" }}>
@@ -53,13 +86,13 @@ export default function ContactContent() {
                 {"Message us on WhatsApp"}
               </a>
               <div style={{ "display": "flex", "flexWrap": "wrap", "gap": "12px" }}>
-                <a href="[FACEBOOK URL]" style={{ "display": "inline-flex", "alignItems": "center", "gap": "8px", "textDecoration": "none", "color": "#F5F5F5", "border": "2px solid #2A2A2E", "borderRadius": "999px", "padding": "10px 16px", "fontWeight": "500", "fontSize": "15px", "minHeight": "44px", "boxSizing": "border-box" }}>
+                <a href="https://www.facebook.com/share/1EC1K8fb7v/" target="_blank" rel="noopener" aria-label="Meg's Pets on Facebook (opens in a new tab)" style={{ "display": "inline-flex", "alignItems": "center", "gap": "8px", "textDecoration": "none", "color": "#F5F5F5", "border": "2px solid #2A2A2E", "borderRadius": "999px", "padding": "10px 16px", "fontWeight": "500", "fontSize": "15px", "minHeight": "44px", "boxSizing": "border-box" }}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--leaf)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                   </svg>
                   {"Facebook"}
                 </a>
-                <a href="[INSTAGRAM URL]" style={{ "display": "inline-flex", "alignItems": "center", "gap": "8px", "textDecoration": "none", "color": "#F5F5F5", "border": "2px solid #2A2A2E", "borderRadius": "999px", "padding": "10px 16px", "fontWeight": "500", "fontSize": "15px", "minHeight": "44px", "boxSizing": "border-box" }}>
+                <a href="https://www.instagram.com/megspetscrawley/" target="_blank" rel="noopener" aria-label="Instagram @megspetscrawley (opens in a new tab)" style={{ "display": "inline-flex", "alignItems": "center", "gap": "8px", "textDecoration": "none", "color": "#F5F5F5", "border": "2px solid #2A2A2E", "borderRadius": "999px", "padding": "10px 16px", "fontWeight": "500", "fontSize": "15px", "minHeight": "44px", "boxSizing": "border-box" }}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--leaf)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <rect x="2" y="2" width="20" height="20" rx="5" />
                     <circle cx="12" cy="12" r="4" />
@@ -97,7 +130,7 @@ export default function ContactContent() {
                 </li>
               </ul>
               <p style={{ "margin": "0", "fontSize": "15px", "color": "#A1A1AA" }}>
-                {"And surrounding areas — just ask."}
+                {"And surrounding areas \u2014 just ask."}
               </p>
             </div>
             <p style={{ "margin": "0", "display": "flex", "alignItems": "center", "gap": "10px", "fontSize": "16px", "color": "#D4D4D8" }}>
@@ -105,87 +138,98 @@ export default function ContactContent() {
                 <circle cx="12" cy="12" r="9" />
                 <path d="M12 7v5l3 2" />
               </svg>
-              {"We usually reply within [REPLY TIME, E.G. 24 HOURS]."}
+              {"We usually reply within 24 hours."}
             </p>
           </div>
           {sent && (
-          <div style={{ "flex": "999 1 560px", "minWidth": "0", "background": "#18181B", "borderRadius": "28px", "padding": "48px", "display": "flex", "flexDirection": "column", "gap": "16px", "alignItems": "flex-start" }}>
-            <span style={{ "width": "64px", "height": "64px", "borderRadius": "50%", "background": "var(--accent)", "display": "flex", "alignItems": "center", "justifyContent": "center" }}>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0B0B0C" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M5 12l5 5 9-10" />
-              </svg>
-            </span>
-            <h2 style={{ "margin": "0", "fontFamily": "var(--font-display), sans-serif", "fontWeight": "800", "fontSize": "36px" }}>
-              {"Thanks — message sent!"}
-            </h2>
-            <p style={{ "margin": "0", "fontSize": "18px", "lineHeight": "1.6", "color": "#B4B4BC" }}>
-              {"We'll get back to you within [REPLY TIME] to arrange your free meet & greet."}
-            </p>
-            <button type="button" style={{ "marginTop": "8px", "background": "transparent", "border": "2px solid #F5F5F5", "color": "#F5F5F5", "font": "inherit", "fontWeight": "700", "fontSize": "16px", "padding": "12px 24px", "borderRadius": "999px", "cursor": "pointer", "minHeight": "44px" }} onClick={() => setSent(false)}>
-              {"Send another"}
-            </button>
-          </div>
+            <div style={{ "flex": "999 1 560px", "minWidth": "0", "background": "#18181B", "borderRadius": "28px", "padding": "48px", "display": "flex", "flexDirection": "column", "gap": "16px", "alignItems": "flex-start" }}>
+              <span style={{ "width": "64px", "height": "64px", "borderRadius": "50%", "background": "var(--accent)", "display": "flex", "alignItems": "center", "justifyContent": "center" }}>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0B0B0C" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M5 12l5 5 9-10" />
+                </svg>
+              </span>
+              <h2 style={{ "margin": "0", "fontFamily": "var(--font-display), sans-serif", "fontWeight": "800", "fontSize": "36px" }}>
+                {"Thanks \u2014 message sent!"}
+              </h2>
+              <p style={{ "margin": "0", "fontSize": "18px", "lineHeight": "1.6", "color": "#B4B4BC" }}>
+                {"We'll get back to you within 24 hours to arrange your free meet & greet."}
+              </p>
+              <button type="button" onClick={() => setSent(false)} style={{ "marginTop": "8px", "background": "transparent", "border": "2px solid #F5F5F5", "color": "#F5F5F5", "font": "inherit", "fontWeight": "700", "fontSize": "16px", "padding": "12px 24px", "borderRadius": "999px", "cursor": "pointer", "minHeight": "44px" }}>
+                {"Send another"}
+              </button>
+            </div>
           )}
           {!sent && (
-          <form style={{ "flex": "999 1 560px", "minWidth": "0", "background": "#18181B", "borderRadius": "28px", "padding": "40px", "display": "flex", "flexDirection": "column", "gap": "24px" }} onSubmit={onSubmit}>
-            <h2 style={{ "margin": "0", "fontFamily": "var(--font-display), sans-serif", "fontWeight": "700", "fontSize": "28px" }}>
-              {"Send us a message"}
-            </h2>
-            <div style={{ "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(100%, 220px), 1fr))", "gap": "20px" }}>
-              <label style={{ "display": "flex", "flexDirection": "column", "gap": "8px", "fontWeight": "700", "fontSize": "15px" }}>
-                {"Your name"}
-                <input type="text" autoComplete="name" style={{ "font": "inherit", "fontWeight": "400", "fontSize": "16px", "padding": "14px 16px", "border": "1.5px solid #52525B", "borderRadius": "14px", "background": "#0B0B0C", "color": "#F5F5F5" }} />
-              </label>
-              <label style={{ "display": "flex", "flexDirection": "column", "gap": "8px", "fontWeight": "700", "fontSize": "15px" }}>
-                {"Email"}
-                <input type="email" autoComplete="email" style={{ "font": "inherit", "fontWeight": "400", "fontSize": "16px", "padding": "14px 16px", "border": "1.5px solid #52525B", "borderRadius": "14px", "background": "#0B0B0C", "color": "#F5F5F5" }} />
-              </label>
-              <label style={{ "display": "flex", "flexDirection": "column", "gap": "8px", "fontWeight": "700", "fontSize": "15px" }}>
-                {"Phone"}
-                <input type="tel" autoComplete="tel" style={{ "font": "inherit", "fontWeight": "400", "fontSize": "16px", "padding": "14px 16px", "border": "1.5px solid #52525B", "borderRadius": "14px", "background": "#0B0B0C", "color": "#F5F5F5" }} />
-              </label>
-              <label style={{ "display": "flex", "flexDirection": "column", "gap": "8px", "fontWeight": "700", "fontSize": "15px" }}>
-                {"Pet name(s) and type"}
-                <input type="text" placeholder="e.g. Bella, cockapoo" style={{ "font": "inherit", "fontWeight": "400", "fontSize": "16px", "padding": "14px 16px", "border": "1.5px solid #52525B", "borderRadius": "14px", "background": "#0B0B0C", "color": "#F5F5F5" }} />
-              </label>
-            </div>
-            <fieldset style={{ "border": "0", "margin": "0", "padding": "0", "display": "flex", "flexDirection": "column", "gap": "12px" }}>
-              <legend style={{ "fontWeight": "700", "fontSize": "15px", "marginBottom": "12px", "padding": "0" }}>
-                {"Service you're interested in"}
-              </legend>
-              <div style={{ "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(100%, 160px), 1fr))", "gap": "12px" }}>
-                <button type="button" className="svc" data-svc="group" aria-pressed={picked === "group"} onClick={() => setPicked("group")}>
-                  {"Group Dog Walk"}
-                </button>
-                <button type="button" className="svc" data-svc="puppy" aria-pressed={picked === "puppy"} onClick={() => setPicked("puppy")}>
-                  {"Puppy Visit"}
-                </button>
-                <button type="button" className="svc" data-svc="cat" aria-pressed={picked === "cat"} onClick={() => setPicked("cat")}>
-                  {"Cat Visits"}
-                </button>
+            <form style={{ "flex": "999 1 560px", "minWidth": "0", "background": "#18181B", "borderRadius": "28px", "padding": "40px", "display": "flex", "flexDirection": "column", "gap": "24px" }} onSubmit={onSubmit}>
+              <h2 style={{ "margin": "0", "fontFamily": "var(--font-display), sans-serif", "fontWeight": "700", "fontSize": "28px" }}>
+                {"Send us a message"}
+              </h2>
+              <div style={{ "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(100%, 220px), 1fr))", "gap": "20px" }}>
+                <label style={{ "display": "flex", "flexDirection": "column", "gap": "8px", "fontWeight": "700", "fontSize": "15px" }}>
+                  {"Your name"}
+                  <input type="text" name="name" required autoComplete="name" style={{ "font": "inherit", "fontWeight": "400", "fontSize": "16px", "padding": "14px 16px", "border": "1.5px solid #52525B", "borderRadius": "14px", "background": "#0B0B0C", "color": "#F5F5F5" }} />
+                </label>
+                <label style={{ "display": "flex", "flexDirection": "column", "gap": "8px", "fontWeight": "700", "fontSize": "15px" }}>
+                  {"Email"}
+                  <input type="email" name="email" required autoComplete="email" style={{ "font": "inherit", "fontWeight": "400", "fontSize": "16px", "padding": "14px 16px", "border": "1.5px solid #52525B", "borderRadius": "14px", "background": "#0B0B0C", "color": "#F5F5F5" }} />
+                </label>
+                <label style={{ "display": "flex", "flexDirection": "column", "gap": "8px", "fontWeight": "700", "fontSize": "15px" }}>
+                  {"Phone"}
+                  <input type="tel" name="phone" autoComplete="tel" style={{ "font": "inherit", "fontWeight": "400", "fontSize": "16px", "padding": "14px 16px", "border": "1.5px solid #52525B", "borderRadius": "14px", "background": "#0B0B0C", "color": "#F5F5F5" }} />
+                </label>
+                <label style={{ "display": "flex", "flexDirection": "column", "gap": "8px", "fontWeight": "700", "fontSize": "15px" }}>
+                  {"Pet name(s) and type"}
+                  <input type="text" name="pets" placeholder="e.g. Bella, cockapoo" style={{ "font": "inherit", "fontWeight": "400", "fontSize": "16px", "padding": "14px 16px", "border": "1.5px solid #52525B", "borderRadius": "14px", "background": "#0B0B0C", "color": "#F5F5F5" }} />
+                </label>
               </div>
-            </fieldset>
-            <label style={{ "display": "flex", "flexDirection": "column", "gap": "8px", "fontWeight": "700", "fontSize": "15px" }}>
-              {"Preferred days and times"}
-              <input type="text" placeholder="e.g. Mon, Wed, Fri — late morning" style={{ "font": "inherit", "fontWeight": "400", "fontSize": "16px", "padding": "14px 16px", "border": "1.5px solid #52525B", "borderRadius": "14px", "background": "#0B0B0C", "color": "#F5F5F5" }} />
-            </label>
-            <label style={{ "display": "flex", "flexDirection": "column", "gap": "8px", "fontWeight": "700", "fontSize": "15px" }}>
-              {"Message"}
-              <textarea rows={5} style={{ "font": "inherit", "fontWeight": "400", "fontSize": "16px", "padding": "14px 16px", "border": "1.5px solid #52525B", "borderRadius": "14px", "background": "#0B0B0C", "color": "#F5F5F5", "resize": "vertical" }} />
-            </label>
-            <div style={{ "display": "flex", "flexWrap": "wrap", "alignItems": "center", "gap": "16px" }}>
-              <button type="submit" style={{ "background": "var(--accent)", "color": "#0B0B0C", "border": "0", "font": "inherit", "fontWeight": "700", "fontSize": "18px", "padding": "16px 40px", "borderRadius": "999px", "cursor": "pointer", "minHeight": "48px" }}>
-                {"Send"}
-              </button>
-              <span style={{ "fontSize": "14px", "color": "#A1A1AA" }}>
-                {"See our "}
-                <Link href="/privacy">
-                  {"Privacy Policy"}
-                </Link>
-                {" for how we use your details."}
-              </span>
-            </div>
-          </form>
+              <fieldset style={{ "border": "0", "margin": "0", "padding": "0", "display": "flex", "flexDirection": "column", "gap": "12px" }}>
+                <legend style={{ "fontWeight": "700", "fontSize": "15px", "marginBottom": "12px", "padding": "0" }}>
+                  {"Service you're interested in"}
+                </legend>
+                <div style={{ "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(100%, 160px), 1fr))", "gap": "12px" }}>
+                  <button type="button" className="svc" data-svc="group" aria-pressed={picked === "group"} onClick={() => setPicked("group")}>
+                    {"Group Dog Walk"}
+                  </button>
+                  <button type="button" className="svc" data-svc="puppy" aria-pressed={picked === "puppy"} onClick={() => setPicked("puppy")}>
+                    {"Puppy Visit"}
+                  </button>
+                  <button type="button" className="svc" data-svc="cat" aria-pressed={picked === "cat"} onClick={() => setPicked("cat")}>
+                    {"Cat Visits"}
+                  </button>
+                </div>
+              </fieldset>
+              <label style={{ "display": "flex", "flexDirection": "column", "gap": "8px", "fontWeight": "700", "fontSize": "15px" }}>
+                {"Preferred days and times"}
+                <input type="text" name="times" placeholder={"e.g. Mon, Wed, Fri \u2014 late morning"} style={{ "font": "inherit", "fontWeight": "400", "fontSize": "16px", "padding": "14px 16px", "border": "1.5px solid #52525B", "borderRadius": "14px", "background": "#0B0B0C", "color": "#F5F5F5" }} />
+              </label>
+              <label style={{ "display": "flex", "flexDirection": "column", "gap": "8px", "fontWeight": "700", "fontSize": "15px" }}>
+                {"Message"}
+                <textarea name="message" rows={5} style={{ "font": "inherit", "fontWeight": "400", "fontSize": "16px", "padding": "14px 16px", "border": "1.5px solid #52525B", "borderRadius": "14px", "background": "#0B0B0C", "color": "#F5F5F5", "resize": "vertical" }} />
+              </label>
+              <div aria-hidden="true" style={{ "position": "absolute", "left": "-10000px", "width": "1px", "height": "1px", "overflow": "hidden" }}>
+                <label>
+                  {"Company"}
+                  <input type="text" name="company" tabIndex={-1} autoComplete="off" />
+                </label>
+              </div>
+              {error && (
+                <p role="alert" style={{ "margin": "0", "background": "#2A1220", "border": "1px solid var(--accent)", "borderRadius": "14px", "padding": "14px 18px", "fontSize": "16px", "color": "#FFC2DF" }}>
+                  {error}
+                </p>
+              )}
+              <div style={{ "display": "flex", "flexWrap": "wrap", "alignItems": "center", "gap": "16px" }}>
+                <button type="submit" disabled={sending} style={{ "background": "var(--accent)", "color": "#0B0B0C", "border": "0", "font": "inherit", "fontWeight": "700", "fontSize": "18px", "padding": "16px 40px", "borderRadius": "999px", "cursor": sending ? "wait" : "pointer", "minHeight": "48px", "opacity": sending ? 0.7 : 1 }}>
+                  {sending ? "Sending\u2026" : "Send"}
+                </button>
+                <span style={{ "fontSize": "14px", "color": "#A1A1AA" }}>
+                  {"See our "}
+                  <Link href="/privacy">
+                    {"Privacy Policy"}
+                  </Link>
+                  {" for how we use your details."}
+                </span>
+              </div>
+            </form>
           )}
         </div>
       </main>

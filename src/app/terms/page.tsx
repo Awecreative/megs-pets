@@ -9,9 +9,6 @@ export default function TermsPage() {
   return (
     <>
       <main style={{ "maxWidth": "820px", "margin": "0 auto", "padding": "64px 24px 96px", "display": "flex", "flexDirection": "column", "gap": "36px", "fontSize": "17px", "lineHeight": "1.65", "color": "#D4D4D8" }}>
-        <p style={{ "margin": "0", "background": "#2A1220", "border": "1px solid var(--accent)", "borderRadius": "14px", "padding": "14px 18px", "fontSize": "15px", "lineHeight": "1.5", "color": "#FFC2DF" }}>
-          {"Template \u2014 please review these terms (ideally with a legal adviser) and fill in every [PLACEHOLDER] before the site goes live."}
-        </p>
         <div style={{ "display": "flex", "flexDirection": "column", "gap": "12px" }}>
           <p style={{ "margin": "0", "fontWeight": "700", "fontSize": "15px", "letterSpacing": "1.5px", "textTransform": "uppercase", "color": "var(--leaf)" }}>
             {"Legal"}
@@ -20,7 +17,7 @@ export default function TermsPage() {
             {"Terms & Conditions"}
           </h1>
           <p style={{ "margin": "0", "color": "#A1A1AA", "fontSize": "15px" }}>
-            {"Last updated: [DATE]"}
+            {"Last updated: Monday 9th November 2026"}
           </p>
         </div>
         <section style={{ "display": "flex", "flexDirection": "column", "gap": "10px" }}>
@@ -36,7 +33,7 @@ export default function TermsPage() {
             {"2. Booking and confirmation"}
           </h2>
           <p style={{ "margin": "0" }}>
-            {"All new clients start with a free meet & greet, where we complete a registration form for each pet. A booking is only confirmed once we have confirmed it to you in writing (by text, email or app message). We may decline a booking if we don't think we can care for your pet safely."}
+            {"All new clients start with a free meet & greet, where we complete a registration form for each pet. A booking is only confirmed once we have confirmed it to you by WhatsApp or Text. We may decline a booking if we don't think we can care for your pet safely."}
           </p>
         </section>
         <section style={{ "display": "flex", "flexDirection": "column", "gap": "10px" }}>
@@ -44,7 +41,7 @@ export default function TermsPage() {
             {"3. Payment"}
           </h2>
           <p style={{ "margin": "0" }}>
-            {"Prices are shown on our Walks & prices page and are in pounds sterling. Payment is due [IN ADVANCE / WEEKLY / WITHIN X DAYS OF INVOICE] by [BANK TRANSFER / CARD / OTHER]. We may pause services if payments are more than [X DAYS] overdue. We will give you at least [X WEEKS] notice of any price change."}
+            {"Prices are shown on our Walks & Prices page. Payment is due on the last day of the month and must be paid within 7 days. Payments are made by bank transfer. We may pause services if payments are more than 7 days late. We will give you 2 months' notice of any price change."}
           </p>
         </section>
         <section style={{ "display": "flex", "flexDirection": "column", "gap": "10px" }}>
@@ -53,10 +50,10 @@ export default function TermsPage() {
           </h2>
           <ul style={{ "margin": "0", "paddingLeft": "22px", "display": "flex", "flexDirection": "column", "gap": "6px" }}>
             <li>
-              {"You can cancel free of charge with at least [X HOURS] notice."}
+              {"You can cancel free of charge with at least 24 hours' notice."}
             </li>
             <li>
-              {"Cancellations with less than [X HOURS] notice are charged at [X% / \u00a3X]."}
+              {"If you cancel with less than 24 hours' notice, you will be charged for the walk or visit."}
             </li>
             <li>
               {"If we arrive and cannot access your home or pet, the full fee is payable."}
@@ -71,7 +68,7 @@ export default function TermsPage() {
             {"5. Weather and safety"}
           </h2>
           <p style={{ "margin": "0" }}>
-            {"Your pet's safety comes first. In extreme heat, ice, storms or other unsafe conditions we may shorten a walk, change the route or swap it for a home visit with play and enrichment. The usual fee still applies."}
+            {"Your pet's safety comes first. In extreme heat, ice, storms or other unsafe conditions we may shorten a walk, change the route or swap it for a home visit with play and cuddles. The usual fee still applies."}
           </p>
         </section>
         <section style={{ "display": "flex", "flexDirection": "column", "gap": "10px" }}>
@@ -95,7 +92,7 @@ export default function TermsPage() {
             {"8. Keys and home access"}
           </h2>
           <p style={{ "margin": "0" }}>
-            {"Keys and alarm codes are stored securely and labelled with a code, never with your address. Keys are kept [IN A LOCKBOX / BY MEG] and returned when services end. Please tell us about any changes to locks, alarms or access arrangements."}
+            {"Keys and alarm codes are stored securely and labelled with a code, never with your address. Keys are kept in a safe box and returned when services end. Please tell us about any changes to locks, alarms or access arrangements."}
           </p>
         </section>
         <section style={{ "display": "flex", "flexDirection": "column", "gap": "10px" }}>
@@ -113,7 +110,7 @@ export default function TermsPage() {
               {"Dogs are only let off lead with your written permission and a reliable recall."}
             </li>
             <li>
-              {"Unneutered males over [X MONTHS] and females in season can't join group walks."}
+              {"Unneutered dogs over a year old and females in season can't join group walks."}
             </li>
           </ul>
         </section>
@@ -122,7 +119,7 @@ export default function TermsPage() {
             {"10. Emergency vet care"}
           </h2>
           <p style={{ "margin": "0" }}>
-            {"If your pet is injured or becomes ill in our care, we will try to contact you and your emergency contact straight away. If we can't reach you, you authorise us to take your pet to your registered vet (or the nearest available vet) and agree to their recommended treatment. You are responsible for all vet costs, and for any transport costs of [\u00a3X]."}
+            {"If your pet is injured or becomes ill in our care, we will try to contact you and your emergency contact straight away. If we can't reach you, you authorise us to take your pet to your registered vet (or the nearest available vet) and agree to their recommended treatment. You are responsible for all vet costs."}
           </p>
         </section>
         <section style={{ "display": "flex", "flexDirection": "column", "gap": "10px" }}>
@@ -130,7 +127,7 @@ export default function TermsPage() {
             {"11. Liability and insurance"}
           </h2>
           <p style={{ "margin": "0" }}>
-            {"We are fully insured and DBS checked, and we take every reasonable care of your pet and home. Our insurance covers [PUBLIC LIABILITY / CARE, CUSTODY & CONTROL / KEY COVER] up to [\u00a3X]. We are not liable for illness, injury or loss that is not caused by our negligence, including pre-existing conditions. Nothing in these terms limits liability that cannot be limited by law."}
+            {"We are Fully Insured, have Public Liability Insurance and are DBS checked, and we take every reasonable care of your pet and home. We are not liable for illness, injury or loss that is not caused by our negligence, including pre-existing conditions. Nothing in these terms limits liability that cannot be limited by law."}
           </p>
         </section>
         <section style={{ "display": "flex", "flexDirection": "column", "gap": "10px" }}>
@@ -146,7 +143,7 @@ export default function TermsPage() {
             {"13. Changes to these terms"}
           </h2>
           <p style={{ "margin": "0" }}>
-            {"We may update these terms from time to time. We will tell existing clients about important changes at least [X WEEKS] before they take effect. Questions? Contact us at meg_richman@hotmail.co.uk."}
+            {"We may update these terms from time to time. Questions? Contact us at meg_richman@hotmail.co.uk."}
           </p>
         </section>
       </main>

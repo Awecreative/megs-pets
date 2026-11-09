@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CONTACT } from "@/lib/contact";
 
 const linkStyle = { color: "#D4D4D8" };
+const iconLink = { ...linkStyle, display: "inline-flex", alignItems: "center", gap: "6px", verticalAlign: "middle" } as const;
 
 export default function SiteFooter() {
   return (
@@ -22,7 +23,7 @@ export default function SiteFooter() {
           Meg&apos;s Pets
         </span>
         <span>
-          Dog walking in Crawley, Crawley Down &amp; East Grinstead ·{" "}
+          Dog walking in Crawley and Surrounding Areas ·{" "}
           <a href={`mailto:${CONTACT.email}`} style={linkStyle}>
             {CONTACT.email}
           </a>{" "}
@@ -50,6 +51,22 @@ export default function SiteFooter() {
               <path d="M9.2 8.6c-.4 0-.8.4-.8 1 0 2.6 2.6 5.3 5.3 5.4.6 0 1-.4 1-.8v-.9l-1.6-.6-.8.7c-.9-.4-1.7-1.2-2.1-2.1l.7-.8-.6-1.6z" />
             </svg>
             WhatsApp
+          </a>{" "}
+          ·{" "}
+          <a href={CONTACT.instagram} target="_blank" rel="noopener" style={iconLink}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--leaf)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <path d="M17.5 6.5h.01" />
+            </svg>
+            Instagram
+          </a>{" "}
+          ·{" "}
+          <a href={CONTACT.facebook} target="_blank" rel="noopener" style={iconLink}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--leaf)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+            Facebook
           </a>
         </span>
         <span>

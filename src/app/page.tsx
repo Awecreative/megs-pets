@@ -11,7 +11,7 @@ export default function HomePage() {
     <>
       <section style={{ "maxWidth": "1200px", "margin": "0 auto", "padding": "72px 24px 88px", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(100%, 460px), 1fr))", "gap": "56px", "alignItems": "center", "position": "relative" }}>
         <div style={{ "display": "flex", "flexDirection": "column", "gap": "24px", "position": "relative" }}>
-          <img src={asset("/images/logo.jpg")} alt="Meg's Pets — your local pet nanny" width="1170" height="230" style={{ "display": "block", "width": "100%", "maxWidth": "549px", "height": "auto", "mixBlendMode": "lighten" }} />
+          <img src={asset("/images/logo.jpg")} alt={"Meg's Pets \u2014 your local pet nanny"} width="1170" height="230" style={{ "display": "block", "width": "100%", "maxWidth": "549px", "height": "auto", "mixBlendMode": "lighten" }} />
           <p style={{ "margin": "0", "fontSize": "20px", "lineHeight": "1.55", "color": "#B4B4BC", "maxWidth": "520px" }}>
             {"A family run business covering Crawley, Crawley Down, East Grinstead and Surrounding Areas.\u00a0"}
           </p>
@@ -20,7 +20,7 @@ export default function HomePage() {
               {"Get in touch"}
             </Link>
             <Link href="/walks-and-prices" style={{ "background": "transparent", "color": "#F5F5F5", "textDecoration": "none", "fontWeight": "700", "fontSize": "18px", "padding": "14px 28px", "borderRadius": "999px", "border": "2px solid #F5F5F5" }}>
-              {"See walks & prices"}
+              {"See Walks & Prices"}
             </Link>
           </div>
           <div style={{ "display": "flex", "flexWrap": "wrap", "gap": "24px", "marginTop": "12px", "fontSize": "15px", "color": "#B4B4BC" }}>
@@ -43,11 +43,22 @@ export default function HomePage() {
             </span>
           </div>
           <h1 className="sr-only">
-            {"Meg's Pets — dog walking and pet care in Crawley, Crawley Down and East Grinstead"}
+            {"Meg's Pets \u2014 dog walking and pet care in Crawley, Crawley Down and East Grinstead"}
           </h1>
         </div>
-        <div style={{ "position": "relative", "minHeight": "480px", "borderRadius": "32px", "background": "#1F1F23", "display": "flex", "alignItems": "center", "justifyContent": "center", "overflow": "hidden", "width": "100%", "maxWidth": "385px", "height": "464px" }}>
-          <img src={asset("/images/hero.jpg")} alt="Meg holding a small fluffy dog beside the Meg's Pets van" width="1200" height="1600" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "display": "block", "objectFit": "cover", "objectPosition": "60% 30%" }} />
+        <div style={{ "display": "flex", "flexWrap": "wrap", "gap": "16px", "justifyContent": "center" }}>
+          <div style={{ "position": "relative", "width": "220px", "maxWidth": "100%", "height": "283px", "border": "3px solid var(--accent)", "borderRadius": "20px", "boxSizing": "border-box", "background": "#1F1F23", "overflow": "hidden" }}>
+            <img src={asset("/images/home-woodland-six.jpg")} alt="Six happy dogs on a woodland walk with Meg's Pets" width="1199" height="1600" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "display": "block", "objectFit": "cover", "objectPosition": "50% 45%" }} />
+          </div>
+          <div style={{ "position": "relative", "width": "220px", "maxWidth": "100%", "height": "283px", "border": "3px solid var(--accent)", "borderRadius": "20px", "boxSizing": "border-box", "background": "#1F1F23", "overflow": "hidden" }}>
+            <img src={asset("/images/home-woodland.jpg")} alt="Dogs on a woodland walk with Meg's Pets" width="1599" height="1463" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "display": "block", "objectFit": "cover", "objectPosition": "50% 40%" }} />
+          </div>
+          <div style={{ "position": "relative", "width": "220px", "maxWidth": "100%", "height": "283px", "border": "3px solid var(--accent)", "borderRadius": "20px", "boxSizing": "border-box", "background": "#1F1F23", "overflow": "hidden" }}>
+            <img src={asset("/images/home-black-cat.jpg")} alt="A black cat relaxing" width="1170" height="927" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "display": "block", "objectFit": "cover", "objectPosition": "35% 40%" }} />
+          </div>
+          <div style={{ "position": "relative", "width": "220px", "maxWidth": "100%", "height": "283px", "border": "3px solid var(--accent)", "borderRadius": "20px", "boxSizing": "border-box", "background": "#1F1F23", "overflow": "hidden" }}>
+            <img src={asset("/images/home-pet.jpg")} alt="A pet in the care of Meg's Pets" width="1199" height="1599" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "display": "block", "objectFit": "cover", "objectPosition": "50% 40%" }} />
+          </div>
         </div>
       </section>
       <section style={{ "background": "#18181B", "padding": "96px 24px" }}>
@@ -65,7 +76,7 @@ export default function HomePage() {
                 <path d="M12 12c-3 0-5.5 3.2-5.5 5.6 0 1.6 1.2 2.4 2.7 2.4 1.1 0 1.8-.6 2.8-.6s1.7.6 2.8.6c1.5 0 2.7-.8 2.7-2.4C17.5 15.2 15 12 12 12z" />
               </svg>
               <span style={{ "fontFamily": "var(--font-display), sans-serif", "fontWeight": "700", "fontSize": "24px" }}>
-                {"Walks & prices"}
+                {"Walks & Prices"}
               </span>
               <span style={{ "fontSize": "16px", "lineHeight": "1.55", "color": "#B4B4BC", "flexGrow": "1", "position": "relative" }}>
                 <span>
@@ -73,20 +84,20 @@ export default function HomePage() {
                 </span>
               </span>
               <span style={{ "fontWeight": "700", "color": "var(--leaf)" }}>
-                {"See walks & prices \u2192"}
+                {"See Walks & Prices \u2192"}
               </span>
             </Link>
             <Link href="/how-it-works" style={{ "background": "#0B0B0C", "borderRadius": "24px", "padding": "32px", "display": "flex", "flexDirection": "column", "gap": "12px", "textDecoration": "none", "color": "#F5F5F5" }}>
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--leaf)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M4 6h16" />
-                <path d="M4 12h16" />
-                <path d="M4 18h10" />
+                <path d="M3 11l9-7 9 7" />
+                <path d="M5 9.5V20h14V9.5" />
+                <path d="M10 20v-6h4v6" />
               </svg>
               <span style={{ "fontFamily": "var(--font-display), sans-serif", "fontWeight": "700", "fontSize": "24px" }}>
                 {"How it works"}
               </span>
               <span style={{ "fontSize": "16px", "lineHeight": "1.55", "color": "#B4B4BC", "flexGrow": "1" }}>
-                {"A free meet & greet so we can say hello to your furry friend and arrange their needs."}
+                {"A free Meet & Greet so we can say hello to your furry friend and arrange their needs."}
               </span>
               <span style={{ "fontWeight": "700", "color": "var(--leaf)" }}>
                 {"How it works \u2192"}
@@ -119,7 +130,7 @@ export default function HomePage() {
               {"Ready for a walk?"}
             </h2>
             <p style={{ "margin": "0", "fontSize": "18px", "lineHeight": "1.55", "color": "#D4D4D8" }}>
-              {"Book a free meet & greet and we'll find the right walks for your dog."}
+              {"Book a free Meet & Greet and we'll find the right walks for your dog."}
             </p>
           </div>
           <div style={{ "display": "flex", "flexWrap": "wrap", "gap": "14px" }}>

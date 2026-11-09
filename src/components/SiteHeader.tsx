@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import PawIcon from "./PawIcon";
 
 const NAV = [
-  { href: "/walks-and-prices", label: "Walks & prices" },
+  { href: "/walks-and-prices", label: "Walks & Prices" },
   { href: "/how-it-works", label: "How it works" },
   { href: "/meet-the-team", label: "Meet the team" },
   { href: "/contact", label: "Contact" },

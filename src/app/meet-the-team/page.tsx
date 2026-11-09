@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Meet the team",
-  description: "Meet Meg and Tor, the people behind the paws.",
+  description: "Meet Meg, Tor and Nige, the people behind the paws.",
 };
 
 export default function MeetTheTeamPage() {
@@ -18,11 +18,14 @@ export default function MeetTheTeamPage() {
         </div>
         <div style={{ "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(100%, 340px), 1fr))", "gap": "24px", "alignItems": "start" }}>
           <article style={{ "background": "#18181B", "borderRadius": "28px", "overflow": "hidden", "display": "flex", "flexDirection": "column" }}>
-            <div style={{ "padding": "28px", "display": "flex", "flexDirection": "column", "gap": "10px", "position": "relative" }}>
-              <span style={{ "alignSelf": "flex-start", "background": "var(--accent)", "color": "#0B0B0C", "fontWeight": "700", "fontSize": "25px", "padding": "6px 12px", "borderRadius": "999px" }}>
+            <div style={{ "height": "450px", "background": "#000000", "position": "relative", "overflow": "hidden" }}>
+              <img src={asset("/images/hero.jpg")} alt="Meg holding a small fluffy dog beside the Meg's Pets van" width="1200" height="1600" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "display": "block", "objectFit": "contain", "objectPosition": "50% 50%" }} />
+              <span style={{ "position": "absolute", "top": "20px", "left": "20px", "background": "var(--accent)", "color": "#0B0B0C", "fontWeight": "700", "fontSize": "25px", "padding": "6px 12px", "borderRadius": "999px" }}>
                 {"Owner"}
               </span>
-              <h2 style={{ "margin": "0", "fontFamily": "var(--font-display), sans-serif", "fontWeight": "800", "fontSize": "28px" }}>
+            </div>
+            <div style={{ "padding": "28px", "display": "flex", "flexDirection": "column", "gap": "10px", "position": "relative" }}>
+              <h2 style={{ "margin": "0", "fontFamily": "var(--font-display), sans-serif", "fontWeight": "800", "fontSize": "30px" }}>
                 {"Meg"}
               </h2>
               <p style={{ "margin": "0", "fontWeight": "700", "fontSize": "28px", "color": "var(--leaf)" }}>
@@ -46,7 +49,7 @@ export default function MeetTheTeamPage() {
             </div>
           </article>
           <article style={{ "background": "#18181B", "borderRadius": "28px", "overflow": "hidden", "display": "flex", "flexDirection": "column" }}>
-            <div style={{ "height": "400px", "background": "#1F1F23", "position": "relative", "overflow": "hidden" }}>
+            <div style={{ "height": "450px", "background": "#1F1F23", "position": "relative", "overflow": "hidden" }}>
               <img src={asset("/images/tor.jpg")} alt="Tor, dog walker" width="720" height="960" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "display": "block", "objectFit": "cover", "objectPosition": "50% 30%" }} />
             </div>
             <div style={{ "padding": "28px", "display": "flex", "flexDirection": "column", "gap": "10px" }}>
@@ -68,6 +71,29 @@ export default function MeetTheTeamPage() {
                 <br />
                 <br />
                 {"In my spare time I love walking, running, going to the gym, Pilates, eating and an occasional tipple or two."}
+              </p>
+            </div>
+          </article>
+          <article style={{ "background": "#18181B", "borderRadius": "28px", "overflow": "hidden", "display": "flex", "flexDirection": "column" }}>
+            <div style={{ "height": "450px", "background": "#1F1F23", "position": "relative", "overflow": "hidden" }}>
+              <img src={asset("/images/nige.jpg")} alt="Nige, dog walker, with a black and white dog" width="1170" height="1401" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "display": "block", "objectFit": "cover", "objectPosition": "50% 40%" }} />
+            </div>
+            <div style={{ "padding": "28px", "display": "flex", "flexDirection": "column", "gap": "10px" }}>
+              <h2 style={{ "margin": "0", "fontFamily": "var(--font-display), sans-serif", "fontWeight": "800", "fontSize": "30px" }}>
+                {"Nige"}
+              </h2>
+              <p style={{ "margin": "0", "fontWeight": "700", "fontSize": "28px", "color": "var(--leaf)" }}>
+                {"Dog Walker"}
+              </p>
+              <p style={{ "margin": "0", "fontSize": "23px", "lineHeight": "1.55", "color": "#B4B4BC" }}>
+                <br />
+                {"Everyone meet Nige! \ud83d\udc99"}
+                <br />
+                <br />
+                {"Nige joined the team in March 2023, he came on board when Meg went on maternity leave. He loves being out walking in the countryside with the doggies."}
+                <br />
+                <br />
+                {"Nige now enjoys retirement with his family and grandchildren. He plays in a band and enjoys a nice glass of red wine. However, he is still around to cover and help out if we need him."}
               </p>
             </div>
           </article>

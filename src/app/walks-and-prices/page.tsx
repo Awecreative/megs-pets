@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { asset } from "@/lib/asset";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -10,16 +11,26 @@ export default function WalksAndPricesPage() {
   return (
     <>
       <main style={{ "maxWidth": "1200px", "margin": "0 auto", "padding": "72px 24px 96px", "display": "flex", "flexDirection": "column", "gap": "48px" }}>
-        <div style={{ "display": "flex", "flexDirection": "column", "gap": "16px", "maxWidth": "680px" }}>
-          <p style={{ "margin": "0", "fontWeight": "700", "fontSize": "15px", "letterSpacing": "1.5px", "textTransform": "uppercase", "color": "var(--leaf)" }}>
-            {"Walks & prices"}
-          </p>
-          <h1 style={{ "margin": "0", "fontFamily": "var(--font-display), sans-serif", "fontWeight": "800", "fontSize": "clamp(40px, 5vw, 64px)", "letterSpacing": "-1.5px", "lineHeight": "1.04" }}>
-            {"A walk for every dog."}
-          </h1>
-          <p style={{ "margin": "0", "fontSize": "19px", "lineHeight": "1.6", "color": "#B4B4BC" }}>
-            {"Every walk includes pick-up and drop-off, fresh water, a towel-down on muddy days and a photo update."}
-          </p>
+        <div style={{ "display": "flex", "flexWrap": "wrap", "alignItems": "center", "justifyContent": "space-between", "gap": "32px" }}>
+          <div style={{ "display": "flex", "flexDirection": "column", "gap": "16px", "maxWidth": "680px" }}>
+            <p style={{ "margin": "0", "fontWeight": "700", "fontSize": "15px", "letterSpacing": "1.5px", "textTransform": "uppercase", "color": "var(--leaf)" }}>
+              {"Walks & prices"}
+            </p>
+            <h1 style={{ "margin": "0", "fontFamily": "var(--font-display), sans-serif", "fontWeight": "800", "fontSize": "clamp(40px, 5vw, 64px)", "letterSpacing": "-1.5px", "lineHeight": "1.04" }}>
+              {"A walk for every dog."}
+            </h1>
+            <p style={{ "margin": "0", "fontSize": "19px", "lineHeight": "1.6", "color": "#B4B4BC" }}>
+              {"Every walk includes pick-up and drop-off, fresh water, a towel-down on muddy days and a photo update."}
+            </p>
+          </div>
+          <div style={{ "display": "flex", "flexWrap": "wrap", "gap": "16px" }}>
+            <div style={{ "width": "220px", "maxWidth": "100%", "height": "162px", "border": "3px solid var(--accent)", "borderRadius": "16px", "background": "#1F1F23", "position": "relative", "overflow": "hidden", "boxSizing": "border-box" }}>
+              <img src={asset("/images/walks-happy-dog.jpg")} alt="A happy dog with Meg's Pets" width="1600" height="1520" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "display": "block", "objectFit": "cover", "objectPosition": "50% 40%" }} />
+            </div>
+            <div style={{ "width": "220px", "maxWidth": "100%", "height": "163px", "border": "3px solid var(--accent)", "borderRadius": "16px", "background": "#1F1F23", "position": "relative", "overflow": "hidden", "boxSizing": "border-box" }}>
+              <img src={asset("/images/walks-cats.jpg")} alt="Two grey and white cats in a garden" width="1200" height="883" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "display": "block", "objectFit": "cover", "objectPosition": "50% 50%" }} />
+            </div>
+          </div>
         </div>
         <div style={{ "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(100%, 260px), 1fr))", "gap": "24px" }}>
           <article style={{ "background": "#18181B", "borderRadius": "24px", "padding": "32px", "display": "flex", "flexDirection": "column", "gap": "16px" }}>
@@ -53,6 +64,17 @@ export default function WalksAndPricesPage() {
               </span>
               <span style={{ "color": "#D4D4D8", "fontSize": "15px" }}>
                 {"per visit"}
+              </span>
+            </p>
+            <p style={{ "margin": "-8px 0 0", "display": "flex", "flexWrap": "wrap", "alignItems": "baseline", "gap": "8px" }}>
+              <span style={{ "color": "#D4D4D8", "fontSize": "15px" }}>
+                {"Additional cats"}
+              </span>
+              <span style={{ "fontFamily": "var(--font-display), sans-serif", "fontWeight": "800", "fontSize": "24px" }}>
+                {"\u00a31"}
+              </span>
+              <span style={{ "color": "#D4D4D8", "fontSize": "15px" }}>
+                {"per cat"}
               </span>
             </p>
           </article>
@@ -125,7 +147,7 @@ export default function WalksAndPricesPage() {
               {"Not sure which walk?"}
             </h2>
             <p style={{ "margin": "0", "fontSize": "18px", "lineHeight": "1.55", "color": "#D4D4D8" }}>
-              {"Book a free meet & greet and Meg will help you pick."}
+              {"Book a free meet & greet and we will help you pick."}
             </p>
           </div>
           <Link href="/contact" style={{ "background": "var(--accent)", "color": "#0B0B0C", "textDecoration": "none", "fontWeight": "700", "fontSize": "18px", "padding": "16px 30px", "borderRadius": "999px" }}>
