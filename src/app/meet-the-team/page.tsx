@@ -67,10 +67,10 @@ export default function MeetTheTeamPage() {
                 {"I joined the Meg's Pets team about 18 months ago, after previously working in a school and the corporate world. I've always been an animal lover and love being outdoors...whatever the British weather throws at us."}
                 <br />
                 <br />
-                {"I love getting to know all the dogs different characters and loving them like I do my own. I grew up with Dogs, Cats, Rabbits, Guinea Pigs and I now have my own Dog and Cat, Angel and Theo. I have two beautiful daughters and equally gorgeous step daughters."}
+                {"I love getting to know all the dogs different characters and loving them like I do my own. I grew up with Dogs, Cats, Rabbits, Guinea Pigs and I now have my own Dog and Cat, Angel and Theo. I have two beautiful daughters and 2 equally gorgeous step daughters."}
                 <br />
                 <br />
-                {"In my spare time I love walking, running, going to the gym, Pilates, eating and an occasional tipple or two."}
+                {"In my spare time I love Walking, Running, going to the Gym, Pilates, Eating and an occasional tipple or two."}
               </p>
             </div>
           </article>

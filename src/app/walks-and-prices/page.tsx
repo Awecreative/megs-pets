@@ -71,7 +71,7 @@ export default function WalksAndPricesPage() {
                 {"Additional cats"}
               </span>
               <span style={{ "fontFamily": "var(--font-display), sans-serif", "fontWeight": "800", "fontSize": "24px" }}>
-                {"\u00a31"}
+                {"\u00a31.50"}
               </span>
               <span style={{ "color": "#D4D4D8", "fontSize": "15px" }}>
                 {"per cat"}
